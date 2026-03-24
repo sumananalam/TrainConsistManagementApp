@@ -1,52 +1,69 @@
-import java.util.HashSet;
-import java.util.Set;
+import java.util.LinkedList;
 
 /**
- * MAIN CLASS - UseCase3TrainConsistMaint
+ * MAIN CLASS - UseCase4TrainConsistOrdered
  *
- * Use Case 3: Track Unique Bogie IDs
+ * Use Case 4: Maintain Ordered Bogie IDs (LinkedList)
  *
  * Description:
- * This class ensures that duplicate bogie IDs are not added into the
- * train formation using HashSet.
+ * This class demonstrates how train bogies are maintained in a specific
+ * physical sequence using LinkedList.
  *
  * At this stage, the application:
- * - Stores bogie IDs
- * - Prevents duplicates automatically
- * - Displays unique bogie identifiers
+ * - Maintains insertion order of bogies
+ * - Supports adding bogies at specific positions
+ * - Removes bogies from the head or tail
+ * - Displays the final ordered train consist
  *
- * This maps uniqueness validation using Set.
+ * This maps ordered train formation using LinkedList.
  *
  * @author Developer
- * @version 3.0
+ * @version 4.0
  */
-public class UseCase3TrainConsistMaint {
+public class UseCase4TrainConsistOrdered {
 
     public static void main(String[] args) {
-        System.out.println("==================================================");
-        System.out.println(" UC3 - Track Unique Bogie IDs ");
-        System.out.println("==================================================\n");
+        System.out.println("==========================================");
+        System.out.println(" UC4 - Maintain Ordered Bogie IDs ");
+        System.out.println("==========================================\n");
 
-        // Create a Set to store unique bogie IDs
-        // HashSet stores only unique values
-        Set<String> bogies = new HashSet<>();
+        // Create a LinkedList to store train consist in order
+        LinkedList<String> trainConsist = new LinkedList<>();
 
-        // --- ADD IDs (including duplicates) ---
-        // add() inserts bogie IDs into the set
-        bogies.add("BG101");
-        bogies.add("BG102");
-        bogies.add("BG103");
-        bogies.add("BG104");
+        // --- Add bogies in sequence (Locomotive → Passenger → Cargo → Guard) ---
+        System.out.println("Step 1: Adding bogies in sequence...");
+        trainConsist.add("Engine");
+        trainConsist.add("Sleeper");
+        trainConsist.add("AC");
+        trainConsist.add("Cargo");
+        trainConsist.add("Guard");
 
-        // Duplicate entries will be ignored internally by HashSet
-        bogies.add("BG101"); // Duplicate entry
-        bogies.add("BG102"); // Duplicate entry
+        System.out.println("Initial Train Consist:");
+        System.out.println(trainConsist);
+        System.out.println();
 
-        // Display unique bogie IDs
-        System.out.println("Bogie IDs After Insertion:");
-        System.out.println(bogies);
-        System.out.println("\nNote:");
-        System.out.println("Duplicates are automatically ignored by HashSet.");
-        System.out.println("\nUC3 uniqueness validation completed...");
+        // --- Insert a bogie at a specific position (Pantry Car at position 2) ---
+        System.out.println("Step 2: Inserting 'Pantry Car' at position 2...");
+        trainConsist.add(2, "Pantry Car");
+
+        System.out.println("After Inserting Pantry Car:");
+        System.out.println(trainConsist);
+        System.out.println();
+
+        // --- Remove the first and last bogie ---
+        System.out.println("Step 3: Removing first and last bogie...");
+        String removedFirst = trainConsist.removeFirst();
+        String removedLast = trainConsist.removeLast();
+
+        System.out.println("Removed First Bogie: " + removedFirst);
+        System.out.println("Removed Last Bogie: " + removedLast);
+        System.out.println();
+
+        // --- Display final ordered train consist ---
+        System.out.println("Final Ordered Train Consist:");
+        System.out.println(trainConsist);
+        System.out.println();
+
+        System.out.println("UC4 ordered train consist operations completed successfully...");
     }
 }
