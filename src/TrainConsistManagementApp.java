@@ -28,24 +28,6 @@ public class TrainConsistManagementApp {
 
     public static void main(String[] args) {
 
-        // Display welcome banner
-        System.out.println("==========================================");
-        System.out.println(" === Train Consist Management App === ");
-        System.out.println("==========================================");
 
-        // Create a dynamic list to store train bogies
-        List<String> trainConsist = new ArrayList<>();
-
-        // Display initial consist information
-        System.out.println("Train initialized successfully...");
-
-        // Display the initial bogie count using size()
-        System.out.println("Initial Bogie Count : " + trainConsist.size());
-
-        // Print the current train consist (empty list)
-        System.out.println("Current Train Consist : " + trainConsist);
-
-        // System ready message
-        System.out.println("\nSystem ready for operations...");
     }
 }
