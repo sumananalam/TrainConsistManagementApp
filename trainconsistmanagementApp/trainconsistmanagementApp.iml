@@ -1,0 +1,29 @@
+import java.util.LinkedHashSet;
+import java.util.Set;
+
+public class UseCase5TrainConsistMgmt {
+
+    public static void main(String[] args) {
+
+        // Welcome message
+        System.out.println("=== Train Consist Management App (UC5) ===");
+
+        // Create LinkedHashSet to store bogies
+        Set<String> trainFormation = new LinkedHashSet<>();
+
+        // Adding bogies
+        System.out.println("Adding bogies to train...");
+
+        trainFormation.add("Engine");
+        trainFormation.add("Sleeper");
+        trainFormation.add("Cargo");
+        trainFormation.add("Guard");
+
+        // محاولة إضافة عنصر مكرر (duplicate)
+        trainFormation.add("Sleeper"); // Duplicate, will be ignored
+
+        // Display final formation
+        System.out.println("\nFinal Train Formation (Insertion Order Preserved):");
+        System.out.println(trainFormation);
+    }
+}
